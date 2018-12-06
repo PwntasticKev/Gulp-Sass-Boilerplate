@@ -5,4 +5,6 @@ ____ GULP SASS BOILERPLATE _____
 2. Global install of GULP
   -Reference: https://gulpjs.com/
 
-3. In your terminal you can now run `gulp default` and it will run all the functions and watch your files. 
+3. Navigate to your project difrectory and run `gulp`
+
+4. In your terminal you can now run `gulp default` and it will run all the functions and watch your files. 
