@@ -32,7 +32,7 @@ var watchTask = function(done) {
 var prefix = function() {
   return gulp.src('source/styles/**/*.scss')
   .pipe(autoprefixer({
-      browsers: ['since 2015'],
+      browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'],
       cascade: false
   }))
   .pipe(gulp.dest('distribute'))
@@ -43,4 +43,4 @@ gulp.task('copy', copyTask);
 gulp.task('connect', connectTask);
 gulp.task('watch', watchTask);
 gulp.task('prefix', prefix);
-gulp.task('default', gulp.series('sass', 'copy', 'watch', 'prefix', 'connect'));
+gulp.task('default', gulp.series('sass', 'prefix', 'copy', 'watch', 'connect'));
