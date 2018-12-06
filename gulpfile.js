@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var connect = require('gulp-connect');
+const autoprefixer = require('gulp-autoprefixer');
 
 sass.compiler = require('node-sass');
 
@@ -28,8 +29,17 @@ var watchTask = function(done) {
   gulp.watch('source/**/*.html', gulp.series('copy'));
   done();
 };
+var prefix = function() {
+  return gulp.src('source/styles/**/*.scss')
+  .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+  }))
+  .pipe(gulp.dest('distribute'))
+};
 gulp.task('sass', sassTask);
 gulp.task('copy', copyTask);
 gulp.task('connect', connectTask);
 gulp.task('watch', watchTask);
-gulp.task('default', gulp.series('sass', 'copy', 'watch', 'connect'));
+gulp.task('prefix', prefix);
+gulp.task('default', gulp.series('sass', 'prefix', 'copy', 'watch', 'connect'));
