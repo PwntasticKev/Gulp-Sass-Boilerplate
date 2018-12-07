@@ -6,13 +6,13 @@ var autoprefixer = require('gulp-autoprefixer');
 sass.compiler = require('node-sass');
 
 var sassTask = function() {
-  return gulp.src('source/styles/**/*.scss')
+  return gulp.src('source/styles/**/*.scss') //Current file it looking at. 
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('distribute/css'))
+    .pipe(gulp.dest('distribute/css'))  //end file where it will distribute to. 
     .pipe(connect.reload());
 };
 var copyTask = function() {
-  return gulp.src('source/**/*.html')
+  return gulp.src('source/**/*.html') // Looking at Files inside of source. see Blobbing: https://gulpjs.com/docs/en/getting-started/explaining-globs
     .pipe(gulp.dest('distribute'))
     .pipe(connect.reload());
 };
