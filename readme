@@ -4,6 +4,7 @@ ____ GULP SASS BOILERPLATE _____
   or... `npm init`
 
 2. Global install of GULP
+  run: `sudo npm install gulp-cli -g`
   -Reference: https://gulpjs.com/
 
 3. Navigate to your project difrectory and run `gulp`

@@ -16,7 +16,7 @@ var copyTask = function() {
     .pipe(gulp.dest('distribute'))
     .pipe(connect.reload());
 };
-var connectTask = function(done()) {
+var connectTask = function(done) {
   connect.server({
     root: 'distribute',
     port: '3000',
